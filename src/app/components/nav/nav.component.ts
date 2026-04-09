@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterOutlet } from "@angular/router";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'sidenav-content',
@@ -13,9 +16,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatSidenavModule,
     MatButtonModule,
     MatListModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    RouterOutlet
+],
 })
-export class NavComponent {
-  showFiller = false;
+export class NavComponent implements OnInit{
+  showFiller = false
+
+  constructor(private router: Router) { }
+  
+  ngOnInit(): void{
+    this.router.navigate(['home'])
+  }
 }
