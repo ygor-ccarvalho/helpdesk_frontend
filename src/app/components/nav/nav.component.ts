@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterOutlet } from "@angular/router";
 import { Router } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -19,6 +20,7 @@ import { HeaderComponent } from "../header/header.component";
     MatListModule,
     MatIconModule,
     RouterOutlet,
+    RouterModule,
     HeaderComponent
 ],
 })
