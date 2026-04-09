@@ -5,6 +5,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterOutlet } from "@angular/router";
 import { Router } from '@angular/router';
+import { HeaderComponent } from "../header/header.component";
 
 
 @Component({
@@ -17,7 +18,8 @@ import { Router } from '@angular/router';
     MatButtonModule,
     MatListModule,
     MatIconModule,
-    RouterOutlet
+    RouterOutlet,
+    HeaderComponent
 ],
 })
 export class NavComponent implements OnInit{
