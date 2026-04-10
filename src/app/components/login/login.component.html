@@ -15,7 +15,7 @@
             <input formControlName="senha" required type="password" matInput placeholder="Senha">
         </mat-form-field>
 
-        <button [disabled]="form.invalid" class="full-width login-btn" matButton="filled" >
+        <button (click)="logar()" [disabled]="form.invalid" class="full-width login-btn" matButton="filled" >
             Login
         </button>
 

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, Validators, ReactiveFormsModule, FormGroup } from '@angular/forms';
-import { Credenciais } from '../../models/credenciais';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-login.component',
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
     senha: new FormControl('', [Validators.required, Validators.minLength(3)])
   });
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
   ngOnInit(): void { }
 
   validaCampos(): boolean {
@@ -25,10 +27,10 @@ export class LoginComponent implements OnInit {
   }
 
   logar() {
-    const email = this.form.value.email;
-    const senha = this.form.value.senha;
+    this.toastr.error('Usuário ou senha inválidos!', 'Login');
+    this.form.get('senha')?.setValue('');
 
-    console.log(email, senha);
+
   }
 }
 
