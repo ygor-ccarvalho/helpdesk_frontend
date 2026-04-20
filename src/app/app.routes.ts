@@ -19,5 +19,5 @@ export const routes: Routes = [
             { path: 'tecnicos', component: TecnicoListComponent }
         ]
     },
-    { path: '**', redirectTo: 'home' }
+    { path: '**', redirectTo: '/login' }
 ];
