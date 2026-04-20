@@ -6,6 +6,7 @@ import { TecnicoService } from '../../../services/tecnico.service';
 import { MatFormField, MatLabel } from "@angular/material/select";
 import { MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import { RouterLink } from "@angular/router";
 
 
 @Component({
@@ -13,7 +14,7 @@ import { MatButton } from '@angular/material/button';
   standalone: true,
   templateUrl: './tecnico-list.component.html',
   styleUrls: ['./tecnico-list.component.css'],
-  imports: [MatTableModule, MatPaginatorModule, MatFormField, MatLabel, MatInputModule, MatButton]
+  imports: [MatTableModule, MatPaginatorModule, MatFormField, MatLabel, MatInputModule, MatButton, RouterLink]
 })
   
 export class TecnicoListComponent implements OnInit {
