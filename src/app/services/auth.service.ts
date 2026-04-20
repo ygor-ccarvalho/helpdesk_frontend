@@ -26,7 +26,7 @@ export class AuthService {
 
   successfullLogin(authToken: string) {
     if (isPlatformBrowser(this.platformId)) {
-      const token = authToken.replace('Bearer ', '');
+      const token = authToken.replace('Bearer ', '');3
       localStorage.setItem('token', token);
     }
   }
