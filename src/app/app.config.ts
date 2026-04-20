@@ -5,8 +5,9 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { JwtModule } from '@auth0/angular-jwt';
 import { API_CONFIG } from './config/api.config';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
-// 👇 pega automaticamente "localhost:8080"
 const domain = new URL(API_CONFIG.baseUrl).host;
 
 export function tokenGetter() {
@@ -26,6 +27,8 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
+    provideHttpClient(withInterceptorsFromDi()),
+    AuthInterceptorProvider,
 
     importProvidersFrom(
       JwtModule.forRoot({
