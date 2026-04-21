@@ -7,6 +7,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { API_CONFIG } from './config/api.config';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { provideNgxMask } from 'ngx-mask';
 
 const domain = new URL(API_CONFIG.baseUrl).host;
 
@@ -28,7 +29,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withInterceptorsFromDi()),
-    AuthInterceptorProvider,
+    AuthInterceptorProvider, provideNgxMask(),
 
     importProvidersFrom(
       JwtModule.forRoot({

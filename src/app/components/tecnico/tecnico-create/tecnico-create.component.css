@@ -34,3 +34,7 @@ button{
     color: black !important;
     cursor: pointer !important;
 }
+
+mat-icon{
+    opacity: 0.8;
+}
