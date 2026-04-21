@@ -14,6 +14,7 @@ export const routes: Routes = [
     {
         path: '',
         component: NavComponent, canActivate: [authGuard],
+        canActivateChild: [authGuard],
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
@@ -21,5 +22,5 @@ export const routes: Routes = [
             { path: 'tecnicos/create', component: TecnicoCreateComponent }
         ]
     },
-    { path: '**', redirectTo: '/login' }
+    { path: '**', redirectTo: 'login' }
 ];

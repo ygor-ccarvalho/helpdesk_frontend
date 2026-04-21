@@ -26,7 +26,11 @@ export class LoginComponent implements OnInit {
     private service: AuthService,
     private router: Router) { }
   
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (this.service.isAuthenticated()) {
+      this.router.navigate(['']);
+    }
+  }
 
   validaCampos(): boolean {
     return this.form.valid;
@@ -40,8 +44,14 @@ export class LoginComponent implements OnInit {
 
     this.service.authenticate(creds).subscribe({
       next: resposta => {
-        this.service.successfullLogin(resposta.headers.get('Authorization').substring(7));
-        this.router.navigate([''])
+        const authHeader = resposta.headers.get('Authorization');
+
+        if (authHeader) {
+          this.service.successfullLogin(authHeader);
+          this.router.navigate(['']);
+        } else {
+          this.toastr.error('Token não recebido', 'Erro');
+        }
       },
       error: () => {
         this.toastr.error('Usuário ou senha inválidos!', 'Login');

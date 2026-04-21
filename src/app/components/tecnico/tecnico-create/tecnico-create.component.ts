@@ -11,11 +11,14 @@ import { TecnicoService } from '../../../services/tecnico.service';
 import { Tecnico } from '../../../models/tecnico';
 import { ToastrService } from 'ngx-toastr';
 import { RouterModule, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-tecnico-create',
   standalone: true,
   imports: [
+    CommonModule,
     ReactiveFormsModule,
     MatCheckboxModule,
     MatFormFieldModule,
