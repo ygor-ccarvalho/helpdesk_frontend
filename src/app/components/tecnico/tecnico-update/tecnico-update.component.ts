@@ -6,7 +6,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { NgxMaskDirective } from 'ngx-mask';
 import { TecnicoService } from '../../../services/tecnico.service';
 import { Tecnico } from '../../../models/tecnico';
 import { ToastrService } from 'ngx-toastr';
@@ -25,7 +24,6 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
-    NgxMaskDirective,
     RouterModule
   ],
   templateUrl: './tecnico-update.component.html',
