@@ -2,11 +2,10 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, importProvidersF
 import { provideRouter } from '@angular/router';
 import { provideToastr } from 'ngx-toastr';
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { JwtModule } from '@auth0/angular-jwt';
 import { API_CONFIG } from './config/api.config';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { provideHttpClient, withInterceptorsFromDi, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './interceptors/auth.interceptor';
 import { provideNgxMask } from 'ngx-mask';
 
 const domain = new URL(API_CONFIG.baseUrl).host;
@@ -28,7 +27,9 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
-    AuthInterceptorProvider, provideNgxMask(),
+    provideHttpClient(
+      withInterceptors([authInterceptor])
+    ), provideNgxMask(),
 
     importProvidersFrom(
       JwtModule.forRoot({
