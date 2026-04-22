@@ -1,0 +1,60 @@
+<div class="container">
+    <form [formGroup]="form" class="form">
+
+        <h1 class="fullWidth">Atualizar Cliente</h1>
+
+        <img class="fullWidth" src="assets/img/cliente-create.svg" alt="Atualizar Cliente">
+
+
+        <section class="section">
+
+            <mat-checkbox [checked]="perfis.includes(0)" (change)="addPerfil(0, $event)">
+                Admin
+            </mat-checkbox>
+
+            <mat-checkbox [checked]="perfis.includes(1)" (change)="addPerfil(1, $event)">
+                Cliente
+            </mat-checkbox>
+
+            <mat-checkbox [checked]="perfis.includes(2)" (change)="addPerfil(2, $event)">
+                Cliente
+            </mat-checkbox>
+
+        </section>
+
+        <mat-form-field class="fullWidth" appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" placeholder="Nome Completo" maxlength="50">
+            <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth" appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00">
+            <mat-icon matSuffix>badge</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="exemplo@mail.com">
+            <mat-icon matSuffix>mail</mat-icon>
+
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth" appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha" placeholder="Mínimo 3 caracteres">
+            <mat-icon matSuffix>lock</mat-icon>
+
+        </mat-form-field>
+
+        <button class="fullWidth" matButton="filled" (click)="update()" [disabled]="form.invalid">
+            Atualizar
+        </button>
+
+        <button type="button" routerLink="../../" class="fullWidth cancelBtn" mat-stroked-button>
+            Cancelar
+        </button>
+
+    </form>
+</div>
