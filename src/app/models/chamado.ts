@@ -2,8 +2,8 @@ export interface Chamado{
     id?: number;
     dataAbertura?: string;
     dataFechamento?: string;
-    prioridade: string;
-    status: string;
+    prioridade: number;
+    status: number;
     titulo: string;
     descricao: string;
     tecnico: number;
