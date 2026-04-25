@@ -41,7 +41,9 @@
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Técnico</mat-label>
                 <mat-select formControlName="tecnico" required>
-                    <mat-option value="0">Ygor</mat-option>
+                    @for (tec of tecnicos; track tec.id) {
+                    <mat-option [value]="tec.id">{{ tec.nome }}</mat-option>
+                    }
                 </mat-select>
             </mat-form-field>
         </section>
@@ -50,7 +52,9 @@
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Cliente</mat-label>
                 <mat-select formControlName="cliente" required>
-                    <mat-option value="0">Ygor</mat-option>
+                    @for (cli of clientes; track cli.id) {
+                    <mat-option [value]="cli.id">{{ cli.nome }}</mat-option>
+                    }
                 </mat-select>
             </mat-form-field>
         </section>
@@ -58,13 +62,13 @@
         <section class="form">
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Descrição</mat-label>
-                <textarea matInput formControlName="descricao" required placeholder="Ex. Trocar a bateria do notebook.">
+                <textarea matInput formControlName="observacoes" required placeholder="Ex. Trocar a bateria do notebook.">
         </textarea>
             </mat-form-field>
         </section>
 
         <section class="actions">
-            <button mat-stroked-button type="submit" [disabled]="!validaCampos()" matButton="filled" class="full-width">
+            <button mat-stroked-button (click)="create()" type="submit" [disabled]="!validaCampos()" matButton="filled" class="full-width">
                 Adicionar
             </button>
 
