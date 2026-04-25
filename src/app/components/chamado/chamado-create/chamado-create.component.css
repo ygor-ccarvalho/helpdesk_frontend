@@ -1,51 +1,62 @@
-.container{
-    margin: auto auto 2rem auto;
-    width: 45%;
-    padding: 1rem;
-    border-radius: 0.6rem;
-    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-                0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-                0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+.container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.full-width{
+.full-width {
     width: 100%;
 }
 
-h1, img{
+
+h1 {
     text-align: center;
+    margin-bottom: 1rem;
 }
 
-img{
-    height: 15rem;
+img {
+    display: block;
+    margin: 0 auto 1rem;
+    max-height: 12rem;
+    object-fit: contain;
 }
 
-.status-prioridade{
+.status-prioridade {
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-style: none;
+    padding: 0;
 }
 
-.status-prioridade mat-form-field{
-    width: 48%;
+.status-prioridade mat-form-field {
+    flex: 1;
+    
 }
 
-.descricao{
+
+.descricao {
     min-height: 6rem;
     max-height: 10rem;
+    resize: vertical;
 }
 
-button{
-    margin-top: 0.5rem;
-    box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.2),
-            0px 4px 5px 0.5px rgba(0, 0, 0, 0.14),
-            0px 1px 7px 1px rgba(0, 0, 0, 0.12);
+
+button {
+    width: 100%;
+    margin-top: 0.75rem;
 }
 
-.adicionar{
-    background-color: rgba(37, 97, 207, 1) !important;
-    color: white !important;
+
+.mat-mdc-raised-button.cancelar {
+    color: red;
 }
 
-.cancelar{
-    color: red !important;
+@media (max-width: 600px) {
+    .status-prioridade {
+        flex-direction: column;
+    }
 }
