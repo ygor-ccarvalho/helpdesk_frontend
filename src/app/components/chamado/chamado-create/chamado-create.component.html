@@ -1,1 +1,64 @@
-<p>chamado-create.component works!</p>
+<div class="container">
+    <h1 class="full-width">Criando Chamado</h1>
+    <img class="full-width" src="assets/img/chamado-create.svg" alt="Criando Chamado">
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Título do Chamado</mat-label>
+            <input matInput placeholder="Ex. Trocar bateria do notebook.">
+        </mat-form-field>
+    </form>
+
+    <div class="status-prioridade">
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione o Status</mat-label>
+            <mat-select>
+                <mat-option value="0">Aberto</mat-option>
+                <mat-option value="1">Em Andamento</mat-option>
+                <mat-option value="2">Encerrado</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione a Prioridade</mat-label>
+            <mat-select>
+                <mat-option value="0">Baixa</mat-option>
+                <mat-option value="1">Média</mat-option>
+                <mat-option value="2">Alta</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="tecnico">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Selecione o Técnico</mat-label>
+            <mat-select>
+                <mat-option value="0">Ygor</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="cliente">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Selecione o Cliente</mat-label>
+            <mat-select>
+                <mat-option value="0">Ygor</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Descrição da ocorrência</mat-label>
+            <textarea class="descricao" matInput placeholder="Ex. Trocar a bateria do notebook."></textarea>
+        </mat-form-field>
+    </form>
+
+
+    <button class="full-width adicionar" matButton="outlined">Adicionar</button>
+    <button class="full-width cancelar" mat-stroked-button matButton="elevated">Excluir</button>
+
+
+
+
+</div>
