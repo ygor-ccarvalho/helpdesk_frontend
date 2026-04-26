@@ -1,1 +1,84 @@
-<p>chamado-update.component works!</p>
+<div class="container">
+
+    <form [formGroup]="form">
+
+        <header>
+            <h1 class="full-width">Atualizando Chamado</h1>
+            <img class="full-width" src="assets/img/chamado-create.svg" alt="Ilustração de criação de chamado">
+        </header>
+
+        <section>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Título do Chamado</mat-label>
+                <input matInput formControlName="titulo" required placeholder="Ex. Trocar bateria do notebook.">
+            </mat-form-field>
+        </section>
+
+        <fieldset class="status-prioridade">
+            <legend>Detalhes do Chamado</legend>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status" required>
+                    <mat-option [value]="0">Aberto</mat-option>
+                    <mat-option [value]="1">Em Andamento</mat-option>
+                    <mat-option [value]="2">Encerrado</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Prioridade</mat-label>
+                <mat-select formControlName="prioridade" required>
+                    <mat-option [value]="0">Baixa</mat-option>
+                    <mat-option [value]="1">Média</mat-option>
+                    <mat-option [value]="2">Alta</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </fieldset>
+
+        <section class="tecnico">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Técnico</mat-label>
+                <mat-select formControlName="tecnico" required>
+                    @for (tec of tecnicos; track tec.id) {
+                    <mat-option [value]="tec.id">{{ tec.nome }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </section>
+
+        <section class="cliente">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Cliente</mat-label>
+                <mat-select formControlName="cliente" required>
+                    @for (cli of clientes; track cli.id) {
+                    <mat-option [value]="cli.id">{{ cli.nome }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </section>
+
+        <section class="form">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Descrição</mat-label>
+                <textarea matInput formControlName="observacoes" required
+                    placeholder="Ex. Trocar a bateria do notebook.">
+        </textarea>
+            </mat-form-field>
+        </section>
+
+        <section class="actions">
+            <button mat-stroked-button (click)="update()" type="submit" [disabled]="!validaCampos()" matButton="filled"
+                class="full-width">
+                Atualizar
+            </button>
+
+            <button mat-stroked-button routerLink="/chamados" type="button" matButton="elevated"
+                class="full-width cancelar">
+                Cancelar
+            </button>
+        </section>
+
+    </form>
+</div>

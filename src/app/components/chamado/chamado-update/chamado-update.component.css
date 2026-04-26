@@ -1,0 +1,62 @@
+.container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+img {
+    display: block;
+    margin: 0 auto 1rem;
+    max-height: 12rem;
+    object-fit: contain;
+}
+
+.status-prioridade {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-style: none;
+    padding: 0;
+}
+
+.status-prioridade mat-form-field {
+    flex: 1;
+
+}
+
+
+.descricao {
+    min-height: 6rem;
+    max-height: 10rem;
+    resize: vertical;
+}
+
+
+button {
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
+
+.mat-mdc-raised-button.cancelar {
+    color: red;
+}
+
+@media (max-width: 600px) {
+    .status-prioridade {
+        flex-direction: column;
+    }
+}
