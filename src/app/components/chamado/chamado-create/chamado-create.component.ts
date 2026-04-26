@@ -11,13 +11,13 @@ import { ClienteService } from '../../../services/cliente.service';
 import { ChamadoService } from '../../../services/chamado.service';
 import { Chamado } from '../../../models/chamado';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-chamado-create.component',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, RouterLink],
   templateUrl: './chamado-create.component.html',
   styleUrl: './chamado-create.component.css',
 })
