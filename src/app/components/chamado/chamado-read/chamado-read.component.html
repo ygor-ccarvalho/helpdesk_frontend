@@ -1,1 +1,54 @@
-<p>chamado-read.component works!</p>
+<div class="container">
+
+    @if (chamado) {
+    <section class="card">
+        <header class="header">
+            <h1>Visualização do Chamado</h1>
+            <img src="assets/img/chamado-create.svg" alt="Visualização de chamado">
+        </header>
+
+        <div class="field full">
+            <span class="label">Título</span>
+            <span class="value">{{ chamado.titulo }}</span>
+        </div>
+
+        <div class="grid">
+            <div class="field">
+                <span class="label">Status</span>
+                <span class="badge status">
+                    {{ retornaStatus(chamado.status) }}
+                </span>
+            </div>
+
+            <div class="field">
+                <span class="label">Prioridade</span>
+                <span class="badge prioridade">
+                    {{ retornaPrioridade(chamado.prioridade) }}
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <span class="label">Técnico</span>
+            <span class="value">{{ chamado.nomeTecnico }}</span>
+        </div>
+
+        <div class="field">
+            <span class="label">Cliente</span>
+            <span class="value">{{ chamado.nomeCliente }}</span>
+        </div>
+
+        <div class="field full">
+            <span class="label">Descrição</span>
+            <p class="descricao">{{ chamado.observacoes }}</p>
+        </div>
+
+        <div class="actions">
+            <button mat-stroked-button (click)="voltar()">Retornar</button>
+        </div>
+    </section>
+    }
+
+    
+
+</div>
