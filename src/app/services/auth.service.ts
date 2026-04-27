@@ -55,4 +55,16 @@ export class AuthService {
       localStorage.clear();
     }
   }
+
+  getNomeUsuario(): string {
+    const token = localStorage.getItem('token');
+    if (!token) return 'Admin';
+
+    try {
+      const decoded = this.jwtService.decodeToken(token);
+      return decoded?.nome ?? decoded?.sub ?? 'Admin';
+    } catch {
+      return 'Admin';
+    }
+  }
 }
