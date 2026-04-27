@@ -1,20 +1,133 @@
-<mat-card class="card" appearance="outlined">
-    <mat-card-header>
+<div class="home-container">
 
-        <mat-card-title>Help Desk</mat-card-title>
-        <mat-card-subtitle>Dicas de um DEV</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="assets/img/home-image.svg" alt="Imagem home helpdesk">
-    <mat-card-content>
-        <p>
-            Olá! Seja bem vindo ao sistema Help Desk desenvolvido por mim no curso Desenvolvedor Full Stack.<br />
-            Esse é um sistema para gerenciamento de chamados simulando um simples Help Desk desenvolvido em Angular e
-            Spring Boot.
+    <mat-card class="card welcome-card" appearance="outlined">
+        <mat-card-header>
+            <div mat-card-avatar class="avatar">{{ iniciaisUsuario }}</div>
+            <mat-card-title>Olá, {{ nomeUsuario }}</mat-card-title>
+            <mat-card-subtitle>Bem vindo ao sistema Help Desk — Angular & Spring Boot</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <a mat-button href="https://github.com/ygor-ccarvalho/helpdesk_frontend" target="_blank">
+                <mat-icon>code</mat-icon> GitHub
+            </a>
+            <a mat-button href="https://www.linkedin.com/in/ygorcarvalhodev/" target="_blank">
+                <mat-icon>person</mat-icon> LinkedIn
+            </a>
+        </mat-card-actions>
+    </mat-card>
 
-            <br>O projeto tem como objetivo principal abordar os conceitos de aplicações SPAs, Autenticação e Autorização com
-            Tokens JWT e muito mais. O código fonte do projeto pode ser acessado clicando no link Github no menu lateral.
-        
-        </p>
-    </mat-card-content>
-   
-</mat-card>
+    <div class="metrics-grid">
+
+        <mat-card class="metric-card" appearance="outlined">
+            <mat-card-content>
+                <span class="metric-label">Total de chamados</span>
+                <span class="metric-value">{{ totalChamados }}</span>
+                <span class="metric-sub">este mês</span>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="metric-card" appearance="outlined">
+            <mat-card-content>
+                <span class="metric-label">Abertos</span>
+                <span class="metric-value aberto">{{ totalAbertos }}</span>
+                <span class="metric-sub">aguardando</span>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="metric-card" appearance="outlined">
+            <mat-card-content>
+                <span class="metric-label">Em andamento</span>
+                <span class="metric-value andamento">{{ totalAndamento }}</span>
+                <span class="metric-sub">em progresso</span>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="metric-card" appearance="outlined">
+            <mat-card-content>
+                <span class="metric-label">Encerrados</span>
+                <span class="metric-value encerrado">{{ totalEncerrados }}</span>
+                <span class="metric-sub">resolvidos</span>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Chamados recentes</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="chamadosRecentes" class="recentes-table">
+
+                <ng-container matColumnDef="titulo">
+                    <th mat-header-cell *matHeaderCellDef>Título</th>
+                    <td mat-cell *matCellDef="let c">{{ c.titulo }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="cliente">
+                    <th mat-header-cell *matHeaderCellDef>Cliente</th>
+                    <td mat-cell *matCellDef="let c">{{ c.nomeCliente }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let c">
+                        <span class="badge" [ngClass]="'status-' + c.status">
+                            {{ retornaStatus(c.status) }}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="prioridade">
+                    <th mat-header-cell *matHeaderCellDef>Prioridade</th>
+                    <td mat-cell *matCellDef="let c">
+                        <span class="badge" [ngClass]="'prioridade-' + c.prioridade">
+                            {{ retornaPrioridade(c.prioridade) }}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="colunasTabela"></tr>
+                <tr mat-row *matRowDef="let row; columns: colunasTabela;"></tr>
+
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="quick-actions">
+    
+        <div class="action-card" routerLink="/chamados/create">
+            <div class="action-icon" style="background:#E6F1FB;">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                    <path d="M12 5v14M5 12h14" stroke="#185FA5" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
+            <h3>Novo chamado</h3>
+            <p>Registrar ocorrência</p>
+        </div>
+    
+        <div class="action-card" routerLink="/tecnicos">
+            <div class="action-icon" style="background:#EAF3DE;">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" stroke="#3B6D11" stroke-width="2" />
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#3B6D11" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
+            <h3>Ver técnicos</h3>
+            <p>Gerenciar equipe</p>
+        </div>
+    
+        <div class="action-card" routerLink="/chamados">
+            <div class="action-icon" style="background:#FAEEDA;">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#854F0B" stroke-width="2" />
+                    <path d="M8 12h8M8 8h5M8 16h3" stroke="#854F0B" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
+            <h3>Chamados</h3>
+            <p>Ver todos</p>
+        </div>
+    
+    </div>
+
+</div>
