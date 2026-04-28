@@ -63,7 +63,6 @@ export class TecnicoCreateComponent {
       perfis: this.perfis
     };
 
-    console.log(tecnico);
 
     this.service.create(tecnico).subscribe({
       next: () => {
@@ -86,14 +85,14 @@ export class TecnicoCreateComponent {
   }
 
   addPerfil(perfil: number, event: any) {
-    if (event.checked) {
+    const checked = event.checked ?? event.target?.checked ?? event;
+
+    if (checked) {
       if (!this.perfis.includes(perfil)) {
         this.perfis.push(perfil);
-        console.log(this.perfis);
       }
     } else {
       this.perfis = this.perfis.filter(p => p !== perfil);
-      console.log(this.perfis);
     }
   }
   }

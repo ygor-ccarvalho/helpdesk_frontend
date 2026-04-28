@@ -1,60 +1,46 @@
 <div class="container">
-    <form [formGroup]="form" class="form">
+    @if(tecnico){
+    <section class="card">
 
-        <h1 class="fullWidth">Deletar Técnico</h1>
+       
+        <header class="header">
+            <h1>Deletar Técnico</h1>
+            <img src="assets/img/tecnico-create.svg" alt="Deletar técnico">
+        </header>
 
-        <img class="fullWidth" src="assets/img/tecnico-create.svg" alt="Atualizar Técnico">
+        <div class="field full">
+            <span class="label">Nome</span>
+            <span class="value">{{ tecnico.nome }}</span>
+        </div>
 
+        <div class="grid">
+            <div class="field">
+                <span class="label">CPF</span>
+                <span class="value">{{ tecnico.cpf }}</span>
+            </div>
+            <div class="field">
+                <span class="label">Email</span>
+                <span class="value">{{ tecnico.email }}</span>
+            </div>
+        </div>
 
-        <section class="section">
+        <div class="field full">
+            <span class="label">Perfis</span>
+            <div class="perfis">
+                @for (perfil of perfisNomes; track perfil) {
+                <span class="badge">{{ perfil }}</span>
+                }
+            </div>
+        </div>
 
-            <mat-checkbox [disabled]="true">
-                Admin
-            </mat-checkbox>
+        <div class="actions">
+            <button mat-flat-button class="btn-deletar" (click)="delete()">
+                <mat-icon>delete</mat-icon>
+                Deletar
+            </button>
+            <button mat-stroked-button routerLink="/tecnicos">Cancelar</button>
+        </div>
 
-            <mat-checkbox [disabled]="true">
-                Cliente
-            </mat-checkbox>
-
-            <mat-checkbox [disabled]="true">
-                Técnico
-            </mat-checkbox>
-
-        </section>
-
-        <mat-form-field class="fullWidth" appearance="outline">
-            <mat-label>Nome</mat-label>
-            <input formControlName="nome" matInput>
-            <mat-icon matSuffix>account_circle</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field class="fullWidth" appearance="outline">
-            <mat-label>CPF</mat-label>
-            <input formControlName="cpf" matInput>
-            <mat-icon matSuffix>badge</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field class="fullWidth" appearance="outline">
-            <mat-label>Email</mat-label>
-            <input formControlName="email" matInput>
-            <mat-icon matSuffix>mail</mat-icon>
-
-        </mat-form-field>
-
-        <mat-form-field class="fullWidth" appearance="outline">
-            <mat-label>Senha</mat-label>
-            <input formControlName="senha" matInput type="password" >
-            <mat-icon matSuffix>lock</mat-icon>
-
-        </mat-form-field>
-
-        <button class="fullWidth" matButton="filled" (click)="delete()" [disabled]="form.invalid">
-            Deletar
-        </button>
-
-        <button type="button" routerLink="../../" class="fullWidth cancelBtn" mat-stroked-button>
-            Cancelar
-        </button>
-
-    </form>
+    </section>
+    }
 </div>
