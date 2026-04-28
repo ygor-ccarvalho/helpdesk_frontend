@@ -1,49 +1,61 @@
 <mat-drawer-container class="container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-        <img src="assets/img/side-image.svg" alt="Imagem de Navegação">
-      <mat-nav-list class="nav-list">
+    <mat-drawer #drawer class="sidenav" [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
 
-        <a class="mat-list-item" mat-list-item routerLink="/home">
-            <mat-icon class="material-icons">home</mat-icon>
-            <span>Home</span>
-        </a>
+        <div class="sidenav-user">
+            <div class="user-avatar">{{ iniciaisUsuario }}</div>
+            <div class="user-info">
+                <span class="user-name">{{ nomeUsuario }}</span>
+                <span class="user-role">Administrador</span>
+            </div>
+            <button mat-icon-button (click)="toggleTheme()" class="theme-toggle">
+                <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+            </button>
+        </div>
 
-        <a mat-list-item routerLink="/tecnicos">
-            <mat-icon class="material-icons">account_circle</mat-icon>
-            <span>Técnicos</span>
-        </a>
+        <mat-nav-list class="nav-list">
+            <p class="nav-section-label">Principal</p>
+            <a mat-list-item routerLink="/home" routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{exact: true}">
+                <mat-icon matListItemIcon>home</mat-icon>
+                <span matListItemTitle>Home</span>
+            </a>
 
-        <a mat-list-item routerLink="/clientes">
-            <mat-icon class="material-icons">person</mat-icon>
-            <span>Clientes</span>
-        </a>
+            <p class="nav-section-label">Gestão</p>
+            <a mat-list-item routerLink="/tecnicos" routerLinkActive="active-link">
+                <mat-icon matListItemIcon>manage_accounts</mat-icon>
+                <span matListItemTitle>Técnicos</span>
+            </a>
+            <a mat-list-item routerLink="/clientes" routerLinkActive="active-link">
+                <mat-icon matListItemIcon>people</mat-icon>
+                <span matListItemTitle>Clientes</span>
+            </a>
+            <a mat-list-item routerLink="/chamados" routerLinkActive="active-link">
+                <mat-icon matListItemIcon>assignment</mat-icon>
+                <span matListItemTitle>Chamados</span>
+            </a>
 
-        <a mat-list-item routerLink="/chamados">
-            <mat-icon class="material-icons">assignment</mat-icon>
-            <span>Chamados</span>
-        </a>
+            <p class="nav-section-label">Externo</p>
+            <a mat-list-item href="https://github.com/ygor-ccarvalho/helpdesk_frontend" target="_blank">
+                <mat-icon matListItemIcon>code</mat-icon>
+                <span matListItemTitle>GitHub</span>
+            </a>
+            <a mat-list-item href="https://www.linkedin.com/in/ygorcarvalhodev/" target="_blank">
+                <mat-icon matListItemIcon>person</mat-icon>
+                <span matListItemTitle>LinkedIn</span>
+            </a>
 
-        <a mat-list-item href="https://github.com/ygor-ccarvalho/helpdesk_frontend" target="_blank">
-            <mat-icon class="material-icons">code</mat-icon>
-            <span>Github</span>
-        </a>
-
-        <a mat-list-item routerLink="/logout" (click)="logout()">
-            <mat-icon class="material-icons">logout</mat-icon>
-            <span>Logout</span>
-        </a>
+            <a mat-list-item class="logout-item" (click)="logout()">
+                <mat-icon matListItemIcon>logout</mat-icon>
+                <span matListItemTitle>Sair</span>
+            </a>
+        </mat-nav-list>
 
 
-      </mat-nav-list>  
     </mat-drawer>
 
     <div class="sidenav-content">
-        <app-header></app-header>
-        <button class="menu" (click)="drawer.toggle()" mat-icon-button>
-            <mat-icon>menu</mat-icon>
-        </button>
+        <app-header [drawer]="drawer" [isMobile]="isMobile"></app-header>
         <router-outlet></router-outlet>
     </div>
 
 </mat-drawer-container>
-

@@ -10,4 +10,24 @@
 
     --cor-alta: #c62828;
     --cor-alta-bg: #ffebee;
+
+    --bg-sidenav: #ffffff;
+    --bg-content: #f7f8fc;
+    --bg-hover: #f4f6fb;
+    --border-color: #f0f2f5;
+    --text-primary: #1a1a2e;
+    --text-secondary: #5a5f7a;
+    --text-muted: #b0b5c8;
+    
+}
+
+
+[data-theme="dark"] {
+    --bg-sidenav: #1e1e2e;
+    --bg-content: #13131f;
+    --bg-hover: #2a2a3e;
+    --border-color: #2e2e42;
+    --text-primary: #e0e0f0;
+    --text-secondary: #9090b0;
+    --text-muted: #55556a;
 }

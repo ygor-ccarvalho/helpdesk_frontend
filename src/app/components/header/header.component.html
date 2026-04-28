@@ -1,3 +1,6 @@
-<div class="container">
+<div class="header-container">
+    <button *ngIf="isMobile" mat-icon-button (click)="drawer.toggle()" class="menu-btn">
+        <mat-icon>menu</mat-icon>
+    </button>
     <h1>Help Desk - Dicas de um dev</h1>
 </div>
