@@ -34,7 +34,7 @@ button {
 }
 
 .cancelBtn {
-    color: black !important;
+    color: var(--text-secondary) !important;
     cursor: pointer !important;
 }
 

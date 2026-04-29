@@ -19,8 +19,8 @@
 }
 
 .btn-novo {
-    background: var(--cor-aberto) ;
-    color: white ;
+    background: var(--cor-aberto);
+    color: white;
     border-radius: 8px;
     gap: 6px;
 }
@@ -41,6 +41,19 @@
     max-width: 400px;
 }
 
+.search-field .mat-mdc-text-field-wrapper {
+    background: var(--bg-hover) ;
+}
+
+.search-field .mdc-floating-label,
+.search-field input {
+    color: var(--text-primary) ;
+}
+
+.search-field .mat-mdc-form-field-icon-prefix {
+    color: var(--text-muted) ;
+}
+
 .table-wrapper {
     overflow-x: auto;
 }
@@ -48,20 +61,30 @@
 table {
     width: 100%;
     background: var(--bg-sidenav) !important;
+    --mat-table-row-item-label-text-color: var(--text-primary);
+    --mat-table-header-headline-color: var(--text-secondary);
+    --mat-table-background-color: var(--bg-sidenav);
+    --mat-paginator-container-text-color: var(--text-secondary);
+    --mat-paginator-enabled-icon-color: var(--text-secondary);
 }
 
 th.mat-header-cell {
-    color: var(--text-muted) !important;
+    color: var(--text-muted) ;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-bottom-color: var(--border-color) !important;
+    border-bottom-color: var(--border-color);
 }
 
 td.mat-cell {
-    color: var(--text-primary) !important;
-    border-bottom-color: var(--border-color) !important;
+    color: var(--text-primary) ;
+    border-bottom-color: var(--border-color);
+}
+
+.mat-mdc-header-row,
+.mat-mdc-row {
+    background: var(--bg-sidenav) !important;
 }
 
 tr.mat-row:hover td {
@@ -90,4 +113,12 @@ mat-paginator {
     background: var(--bg-sidenav) !important;
     color: var(--text-secondary) !important;
     border-top: 1px solid var(--border-color);
+    --mat-paginator-container-text-color: var(--text-secondary) !important;
+    --mat-paginator-enabled-icon-color: var(--text-secondary) !important;
+    --mat-select-trigger-text-color: var(--text-secondary) !important;
+    --mat-select-enabled-trigger-text-color: var(--text-secondary) !important;
+}
+
+.mat-mdc-select-value-text {
+    color: var(--text-secondary) !important;
 }

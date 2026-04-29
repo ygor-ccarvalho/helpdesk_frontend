@@ -18,7 +18,7 @@
     --text-primary: #1a1a2e;
     --text-secondary: #5a5f7a;
     --text-muted: #b0b5c8;
-    
+
 }
 
 
@@ -30,4 +30,16 @@
     --text-primary: #e0e0f0;
     --text-secondary: #9090b0;
     --text-muted: #55556a;
+    --mat-sys-on-surface: var(--text-primary);
+    --mat-sys-on-background: var(--text-primary);
+    --mat-sidenav-content-text-color: var(--text-primary);
+    --mat-table-row-item-label-text-color: var(--text-primary);
+    --mat-table-header-headline-color: var(--text-muted);
+    --mat-paginator-container-text-color: var(--text-secondary);
+    --mat-select-enabled-trigger-text-color: var(--text-secondary);
+    --mat-paginator-enabled-icon-color: var(--text-secondary);
+    --mat-select-panel-background-color: var(--bg-sidenav);
+    --mat-option-label-text-color: var(--text-primary);
+    --mat-option-selected-state-label-text-color: var(--cor-aberto);
+    --mat-option-hover-state-layer-color: var(--bg-hover);
 }
