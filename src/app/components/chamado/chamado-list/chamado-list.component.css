@@ -1,41 +1,179 @@
+
 .container {
-    width: 90%;
-    margin: auto;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.btn-novo {
+    background: var(--cor-aberto);
+    color: white;
+    border-radius: 8px;
+    gap: 6px;
 }
 
 .tabela {
-    width: 100%;
-    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-        0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-        0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-
+    background: var(--bg-sidenav);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
 }
 
-.mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-    background-color: white;
-    ;
+.tabela-header {
+    padding: 16px 16px 0;
 }
 
-button {
+.search-field {
     width: 100%;
-    margin-bottom: 2rem;
-    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-        0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-        0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    max-width: 400px;
 }
 
-h1 {
+.search-field .mat-mdc-text-field-wrapper {
+    background: var(--bg-hover);
+}
+
+.search-field .mdc-floating-label,
+.search-field input {
+    color: var(--text-primary);
+}
+
+.search-field .mat-mdc-form-field-icon-prefix {
+    color: var(--text-muted);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
     width: 100%;
+    background: var(--bg-sidenav) !important;
+    --mat-table-row-item-label-text-color: var(--text-primary);
+    --mat-table-header-headline-color: var(--text-secondary);
+    --mat-table-background-color: var(--bg-sidenav);
+    --mat-paginator-container-text-color: var(--text-secondary);
+    --mat-paginator-enabled-icon-color: var(--text-secondary);
+}
+
+th.mat-header-cell {
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-bottom-color: var(--border-color);
+}
+
+td.mat-cell {
+    color: var(--text-primary);
+    border-bottom-color: var(--border-color);
+}
+
+.mat-mdc-header-row,
+.mat-mdc-row {
+    background: var(--bg-sidenav) !important;
+}
+
+tr.mat-row:hover td {
+    background: var(--bg-hover);
+}
+
+.btn-edit {
+    color: var(--cor-aberto) !important;
+}
+
+.btn-delete {
+    color: var(--cor-alta) !important;
+}
+
+.no-data {
     text-align: center;
-    margin-bottom: 2rem;
+    padding: 2rem !important;
+    color: var(--text-muted) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.edit {
-    color: rgba(37, 97, 207, 1);
+mat-paginator {
+    background: var(--bg-sidenav) !important;
+    color: var(--text-secondary) !important;
+    border-top: 1px solid var(--border-color);
+    --mat-paginator-container-text-color: var(--text-secondary) !important;
+    --mat-paginator-enabled-icon-color: var(--text-secondary) !important;
+    --mat-select-trigger-text-color: var(--text-secondary) !important;
+    --mat-select-enabled-trigger-text-color: var(--text-secondary) !important;
 }
 
-.delete {
-    color: rgb(197, 4, 4);
+.mat-mdc-select-value-text {
+    color: var(--text-secondary) !important;
+}
+
+.filter-field {
+    width: 100%;
+    max-width: 220px;
+}
+
+.tabela-header {
+    padding: 16px 16px 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-view {
+    color: var(--cor-encerrado) !important;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.status-0 {
+    background: var(--cor-aberto-bg);
+    color: var(--cor-aberto);
+}
+
+.status-1 {
+    background: var(--cor-andamento-bg);
+    color: var(--cor-andamento);
+}
+
+.status-2 {
+    background: var(--cor-encerrado-bg);
+    color: var(--cor-encerrado);
+}
+
+.prioridade-0 {
+    background: var(--cor-encerrado-bg);
+    color: var(--cor-encerrado);
+}
+
+.prioridade-1 {
+    background: var(--cor-andamento-bg);
+    color: var(--cor-andamento);
+}
+
+.prioridade-2 {
+    background: var(--cor-alta-bg);
+    color: var(--cor-alta);
 }
