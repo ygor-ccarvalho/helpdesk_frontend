@@ -1,9 +1,57 @@
 <div class="container">
+    @if(cliente){
+    <section class="card">
+
+
+        <header class="header">
+            <h1>Deletar Cliente</h1>
+            <img src="assets/img/tecnico-create.svg" alt="Deletar cliente">
+        </header>
+
+        <div class="field full">
+            <span class="label">Nome</span>
+            <span class="value">{{ cliente.nome }}</span>
+        </div>
+
+        <div class="grid">
+            <div class="field">
+                <span class="label">CPF</span>
+                <span class="value">{{ cliente.cpf }}</span>
+            </div>
+            <div class="field">
+                <span class="label">Email</span>
+                <span class="value">{{ cliente.email }}</span>
+            </div>
+        </div>
+
+        <div class="field full">
+            <span class="label">Perfis</span>
+            <div class="perfis">
+                @for (perfil of perfisNomes; track perfil) {
+                <span class="badge">{{ perfil }}</span>
+                }
+            </div>
+        </div>
+
+        <div class="actions">
+            <button mat-flat-button class="btn-deletar" (click)="delete()">
+                <mat-icon>delete</mat-icon>
+                Deletar
+            </button>
+            <button mat-stroked-button routerLink="/clientes" class="cancelBtn">Cancelar</button>
+        </div>
+
+    </section>
+    }
+</div>
+
+
+<!-- <div class="container">
     <form [formGroup]="form" class="form">
 
         <h1 class="fullWidth">Deletar Cliente</h1>
 
-        <img class="fullWidth" src="assets/img/tecnico-create.svg" alt="Atualizar Cliente">
+        <img class="fullWidth" src="assets/img/cliente-create.svg" alt="Atualizar Cliente">
 
 
         <section class="section">
@@ -57,4 +105,4 @@
         </button>
 
     </form>
-</div>
+</div> -->
