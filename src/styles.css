@@ -42,4 +42,6 @@
     --mat-option-label-text-color: var(--text-primary);
     --mat-option-selected-state-label-text-color: var(--cor-aberto);
     --mat-option-hover-state-layer-color: var(--bg-hover);
+    --mat-card-elevated-container-color: var(--bg-sidenav);
+    --mat-card-outlined-container-color: var(--bg-sidenav);
 }
