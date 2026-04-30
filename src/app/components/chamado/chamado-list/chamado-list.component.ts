@@ -1,35 +1,41 @@
 import { OnInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormField, MatLabel, MatOption, MatSelect } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Chamado } from '../../../models/chamado';
 import { ChamadoService } from '../../../services/chamado.service';
-import { error } from 'console';
 
 @Component({
-  selector: 'app-chamado-list.component',
-  imports: [MatTableModule, MatPaginatorModule, MatFormField, MatLabel, MatInputModule, MatButton, RouterLink, MatSelect, MatOption],
+  selector: 'app-chamado-list',
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSelectModule,
+    RouterLink,
+  ],
   templateUrl: './chamado-list.component.html',
   styleUrl: './chamado-list.component.css',
 })
 export class ChamadoListComponent implements OnInit {
 
   ELEMENT_DATA: Chamado[] = [];
-  FILTERED_DATA: Chamado[] = [];
-
   displayedColumns: string[] = ['id', 'titulo', 'cliente', 'tecnico', 'dataAbertura', 'prioridade', 'status', 'acoes'];
   dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
 
-  selected = 'nenhum'
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(
-    private service: ChamadoService
-  ) { }
+  constructor(private service: ChamadoService) { }
 
   ngOnInit() {
     this.findAll();
@@ -42,54 +48,30 @@ export class ChamadoListComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Chamado>(resposta);
         this.dataSource.paginator = this.paginator;
       },
-      error: err => {
-        console.error('ERRO COMPLETO:', err);
-        console.error('STATUS:', err.status);
-        console.error('BODY:', err.error);
-      }
+      error: err => console.error('Erro ao carregar chamados:', err)
     });
   }
 
-  retornaStatus(status: any): string {
-    switch (status) {
-      case 0:
-        return 'Aberto';
-      case 1:
-        return 'Em Andamento';
-      case 2:
-        return 'Encerrado';
-      default:
-        return 'Desconhecido';
-    }
+  retornaStatus(status: number): string {
+    if (status === 0) return 'Aberto';
+    if (status === 1) return 'Em andamento';
+    return 'Encerrado';
   }
 
-  retornaPrioridade(prioridade: any): string {
-    switch (prioridade) {
-      case 0:
-        return 'Baixa';
-      case 1:
-        return 'Média';
-      case 2:
-        return 'Alta';
-      default:
-        return 'Desconhecida';
-    }
+  retornaPrioridade(prioridade: number): string {
+    if (prioridade === 0) return 'Baixa';
+    if (prioridade === 1) return 'Média';
+    return 'Alta';
   }
 
   orderByStatus(status: number | null): void {
-    if (status === null) {
-      this.dataSource.data = this.ELEMENT_DATA;
-    } else {
-      this.dataSource.data = this.ELEMENT_DATA.filter(
-        e => e.status === status
-      );
-    }
+    this.dataSource.data = status === null
+      ? this.ELEMENT_DATA
+      : this.ELEMENT_DATA.filter(e => e.status === status);
   }
 
-
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+}
