@@ -1,59 +1,117 @@
-# Helpdesk
+# Help Desk — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
+## 🚀 Preview
 
-## Development server
+![Preview](docs/dark/home.png)
 
-To start a local development server, run:
+
+---
+
+## 📌 Sobre o projeto
+
+Aplicação web para gerenciamento de chamados técnicos, desenvolvida com Angular e Angular Material.
+
+Projeto inspirado em curso, com diversas melhorias e evoluções implementadas de forma independente, incluindo redesign completo da interface, tema escuro, responsividade e padronização visual.
+
+---
+
+## 🛠️ Tecnologias
+
+* Angular 17+
+* Angular Material (MDC)
+* TypeScript
+* RxJS
+* ngx-mask
+* ngx-toastr
+* Spring Boot (backend separado)
+
+---
+
+## ⚙️ Funcionalidades
+
+* Autenticação com JWT
+* CRUD de técnicos
+* CRUD de clientes
+* Abertura e acompanhamento de chamados
+* Filtro e paginação nas listagens
+* Layout responsivo
+* Tema escuro com persistência via localStorage
+
+---
+
+## 🧠 Diferenciais técnicos
+
+* Implementação de tema dinâmico com CSS Variables
+* Controle de responsividade com BreakpointObserver (Angular CDK)
+* Interceptor HTTP para autenticação com JWT
+* Customização avançada do Angular Material (MDC)
+* Padronização de layout e design system
+
+---
+
+## 🎨 Melhorias implementadas
+
+* Dark mode completo com troca dinâmica de tema
+* Sidenav redesenhado com seções, avatar e navegação organizada
+* Badges visuais para status e prioridade
+* Telas de confirmação (delete) com UI moderna
+* Melhorias de UX e consistência visual
+* Layout adaptado para mobile (menu hamburguer)
+
+---
+
+## 📸 Screenshots
+
+### 🌞 Light mode
+
+| Home                         | Lista                                | Delete                           | Update                           |
+| ---------------------------- | ------------------------------------ | -------------------------------- | -------------------------------- |
+| ![Home](docs/light/home.png) | ![Técnicos](docs/light/tecnicos.png) | ![Delete](docs/light/delete.png) | ![Update](docs/light/update.png) |
+
+---
+
+### 🌙 Dark mode
+
+| Home                        | Lista                               | Delete                          | Update                           |
+| --------------------------- | ----------------------------------- | ------------------------------- | -------------------------------- |
+| ![Home](docs/dark/home.png) | ![Técnicos](docs/dark/tecnicos.png) | ![Delete](docs/dark/delete.png) | ![Update](docs/dark/update.png) |
+
+---
+
+## ▶️ Como rodar
+
+### Pré-requisitos
+
+* Node.js 18+
+* Angular CLI
+
+### Instalação
 
 ```bash
+git clone https://github.com/ygor-ccarvalho/helpdesk_frontend
+cd helpdesk_frontend
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse: http://localhost:4200
 
-## Code scaffolding
+> ⚠️ O backend precisa estar rodando
+> https://github.com/ygor-ccarvalho/helpdesk_backend
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+### 🚧 Próximos passos
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+* Implementar recuperação de senha (fluxo completo com envio de e-mail e redefinição)
+* Melhorar responsividade
+* Implementar testes unitários
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 👨‍💻 Autor
 
-To build the project run:
+**Ygor Carvalho**
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+* 🔗 LinkedIn: https://www.linkedin.com/in/ygorcarvalhodev/
+* 💻 GitHub: https://github.com/ygor-ccarvalho
