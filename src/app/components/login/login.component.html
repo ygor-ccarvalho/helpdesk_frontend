@@ -1,22 +1,32 @@
 <div class="container">
-    <form class="form" [formGroup]="form">
+    <form class="form" [formGroup]="form" (ngSubmit)="logar()">
 
         <h1>Help Desk - Dicas de um DEV</h1>
 
         <img src="assets/img/login-image.svg" alt="Imagem de login">
 
-        <mat-form-field class="full-width input">
-            <mat-label>Email:</mat-label>
-            <input formControlName="email" required matInput placeholder="nome@email.com.br">
+        <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="nome@email.com.br">
+            <mat-error *ngIf="form.get('email')?.hasError('required')">E-mail obrigatório</mat-error>
+            <mat-error *ngIf="form.get('email')?.hasError('email')">E-mail inválido</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="full-width input">
-            <mat-label>Senha:</mat-label>
-            <input formControlName="senha" required type="password" matInput placeholder="Senha">
+        <mat-form-field class="full-width">
+            <mat-label>Senha</mat-label>
+            <input formControlName="senha" [type]="senhaVisivel ? 'text' : 'password'" matInput placeholder="Senha">
+            <button mat-icon-button matSuffix type="button" (click)="senhaVisivel = !senhaVisivel">
+                <mat-icon>{{ senhaVisivel ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="form.get('senha')?.hasError('required')">Senha obrigatória</mat-error>
+            <mat-error *ngIf="form.get('senha')?.hasError('minlength')">Mínimo 3 caracteres</mat-error>
         </mat-form-field>
 
-        <button (click)="logar()" [disabled]="form.invalid" class="full-width login-btn" matButton="filled" >
-            Login
+        <a class="forgot-link" routerLink="/recuperar-senha">Esqueci minha senha</a>
+
+        <button type="submit" mat-flat-button class="full-width login-btn" [disabled]="form.invalid || loading">
+            <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+            <span *ngIf="!loading">Entrar</span>
         </button>
 
     </form>

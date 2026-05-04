@@ -18,6 +18,7 @@
     --text-primary: #1a1a2e;
     --text-secondary: #5a5f7a;
     --text-muted: #b0b5c8;
+    
 
 }
 
@@ -44,4 +45,10 @@
     --mat-option-hover-state-layer-color: var(--bg-hover);
     --mat-card-elevated-container-color: var(--bg-sidenav);
     --mat-card-outlined-container-color: var(--bg-sidenav);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
