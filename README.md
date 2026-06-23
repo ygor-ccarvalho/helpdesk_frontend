@@ -1,9 +1,13 @@
 # Help Desk — Frontend
 
+![Angular](https://img.shields.io/badge/Angular-21-DD0031?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-24-339933?logo=nodedotjs&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ## 🚀 Preview
 
 ![Preview](docs/dark/home.png)
-
 
 ---
 
@@ -17,12 +21,13 @@ Projeto inspirado em curso, com diversas melhorias e evoluções implementadas d
 
 ## 🛠️ Tecnologias
 
-* Angular 17+
-* Angular Material (MDC)
-* TypeScript
-* RxJS
-* ngx-mask
-* ngx-toastr
+* Angular 21
+* Angular Material 21 (MDC)
+* TypeScript 5.9
+* RxJS 7
+* SSR com @angular/ssr + Express 5
+* ngx-mask / ngx-toastr
+* FontAwesome
 * Spring Boot (backend separado)
 
 ---
@@ -41,6 +46,7 @@ Projeto inspirado em curso, com diversas melhorias e evoluções implementadas d
 
 ## 🧠 Diferenciais técnicos
 
+* Server-Side Rendering (SSR) com @angular/ssr + Express
 * Implementação de tema dinâmico com CSS Variables
 * Controle de responsividade com BreakpointObserver (Angular CDK)
 * Interceptor HTTP para autenticação com JWT
@@ -82,8 +88,9 @@ Projeto inspirado em curso, com diversas melhorias e evoluções implementadas d
 
 ### Pré-requisitos
 
-* Node.js 18+
-* Angular CLI
+* Node.js 24+ (LTS)
+* Angular CLI 21+
+* npm 11+
 
 ### Instalação
 
@@ -96,8 +103,20 @@ ng serve
 
 Acesse: http://localhost:4200
 
+### Rodar com SSR (Server-Side Rendering)
+
+```bash
+npm run build
+npm run serve:ssr:helpdesk
+```
+
+> ℹ️ O projeto suporta SSR (`@angular/ssr` + Express), mas a **demo hospedada no GitHub Pages roda em modo estático (CSR)**, já que o GitHub Pages não executa servidores Node. Para ver o SSR em ação, rode localmente com o comando acima.
+
+
+
 > ⚠️ O backend precisa estar rodando
 > https://github.com/ygor-ccarvalho/helpdesk_backend
+
 
 ---
 
@@ -115,3 +134,8 @@ Acesse: http://localhost:4200
 
 * 🔗 LinkedIn: https://www.linkedin.com/in/ygorcarvalhodev/
 * 💻 GitHub: https://github.com/ygor-ccarvalho
+
+## 🙏 Agradecimentos
+
+Projeto desenvolvido a partir do curso do professor **Valdir Cezar** na Udemy,
+com **melhorias e implementações próprias**.
