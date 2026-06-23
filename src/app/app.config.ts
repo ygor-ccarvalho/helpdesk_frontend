@@ -7,6 +7,7 @@ import { API_CONFIG } from './config/api.config';
 import { provideHttpClient, withInterceptorsFromDi, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { provideNgxMask } from 'ngx-mask';
+import { errorInterceptor } from './interceptors/error.interceptor';
 
 const domain = new URL(API_CONFIG.baseUrl).host;
 
@@ -28,7 +29,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
     provideHttpClient(
-      withInterceptors([authInterceptor])
+      withInterceptors([authInterceptor, errorInterceptor])
     ), provideNgxMask(),
 
     importProvidersFrom(
